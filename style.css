@@ -107,6 +107,18 @@
        width: 100%;
    }
 
+   .nav-toggle {
+       display: none;
+       cursor: pointer;
+       font-size: 1.5rem;
+       color: #000;
+       z-index: 1001;
+   }
+
+   .nav-toggle i {
+       pointer-events: none;
+   }
+
    .hero {
        min-height: 100vh;
        display: flex;
@@ -471,10 +483,52 @@
    }
 
    @media (max-width: 968px) {
+       .navbar {
+           padding: 0.8rem 1.5rem;
+           width: 95%;
+           top: 15px;
+       }
+
+       .nav-toggle {
+           display: block;
+       }
+
+       .nav-links {
+           position: fixed;
+           top: 0;
+           right: -100%;
+           width: 100%;
+           height: 100vh;
+           background: #fff;
+           flex-direction: column;
+           justify-content: center;
+           align-items: center;
+           gap: 2.5rem;
+           transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+           z-index: 1000;
+       }
+
+       .nav-links.active {
+           right: 0;
+       }
+
+       .nav-links li {
+           width: 100%;
+           text-align: center;
+       }
+
+       .nav-links a {
+           font-size: 1.5rem;
+           font-weight: 700;
+           color: #000;
+           display: block;
+           width: 100%;
+       }
+
        .hero {
            flex-direction: column;
            text-align: center;
-           padding: 6rem 5% 4rem;
+           padding: 8rem 5% 4rem;
        }
 
        .hero-content {
@@ -482,39 +536,71 @@
        }
 
        .hero-title {
-           font-size: 3rem;
+           font-size: 3.5rem;
        }
 
        .hero-image {
-           margin-top: 4rem;
+           margin-top: 3rem;
            width: 100%;
            display: flex;
            justify-content: center;
        }
 
        .product-mockup {
-           max-width: 90%;
+           max-width: 100%;
        }
 
        .cta-buttons {
            justify-content: center;
        }
-
-       .nav-links {
-           gap: 1rem;
-       }
    }
 
    @media (max-width: 600px) {
        .hero-title {
-           font-size: 2.5rem;
+           font-size: 2.8rem;
+           line-height: 1.1;
        }
 
        .hero-subtitle {
-           font-size: 1.5rem;
+           font-size: 1.3rem;
+           padding-top: 1.5rem;
+       }
+
+       .hero-description {
+           font-size: 1rem;
+           margin-bottom: 2rem;
+           padding: 0 1rem;
        }
 
        .section-title {
-           font-size: 2.5rem;
+           font-size: 2.2rem;
+       }
+
+       .section-subtitle {
+           margin-bottom: 3rem;
+           font-size: 1rem;
+       }
+
+       .feature-card {
+           padding: 2rem;
+       }
+
+       .navbar .logo {
+           font-size: 1.5rem;
+       }
+
+       .footer-links {
+           gap: 1.5rem;
+       }
+   }
+
+   /* Tablet fixes */
+   @media (min-width: 601px) and (max-width: 1024px) {
+       .hero {
+           padding-top: 10rem;
+       }
+
+       .hero-title {
+           font-size: 4rem;
        }
    }
