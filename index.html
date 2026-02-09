@@ -10,9 +10,12 @@
 <body>
     <nav class="navbar">
         <div class="logo">MailGPT</div>
-        <ul class="nav-links">
+        <div class="nav-toggle" id="navToggle">
+            <i class="bi bi-list"></i>
+        </div>
+        <ul class="nav-links" id="navLinks">
             <li><a href="#features">Features</a></li>
-            <li><a href="#about">About</a></li>
+            <li><a href="about.html">About</a></li>
             <li><a href="mailgpt_login.html">Get Started</a></li>
         </ul>
     </nav>
@@ -105,7 +108,7 @@
                 <a href="#">Contact</a>
             </div>
             <div class="copyright">
-                &copy; 2024 MailGPT. All rights reserved. Crafting beautiful emails for the world.
+                &copy; 2026 MailGPT. All rights reserved. Crafting beautiful emails for the world.
             </div>
         </div>
     </footer>
@@ -130,6 +133,28 @@
             } else {
                 navbar.classList.remove('scrolled');
             }
+        });
+
+        // Mobile menu toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = navToggle.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.replace('bi-list', 'bi-x');
+            } else {
+                icon.classList.replace('bi-x', 'bi-list');
+            }
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                navToggle.querySelector('i').classList.replace('bi-x', 'bi-list');
+            });
         });
 
         // Animate feature cards on scroll
